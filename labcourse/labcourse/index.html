@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Convert PDF</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/labcourse/utils/pdf.js/build/pdf.js"></script>
+	<script type="text/javascript" src='/labcourse/js/pdf2text.js'></script>
+	
+	<h1>PDF.js Showing text and Opening PDF file</h1>
+	
+	<button id='mylink' type="button" value="Submit" onClick="openWin()"> 
+		Open PDF file 
+	</button>
+	
+	<script>
+		function openWin() {
+			window.open("/labcourse/utils/pdf.js/web/viewer.html?File=/labcourse/doc/example.pdf","_blank","toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=1920, height=1080");
+		}
+	</script>
+	
+	<div id="pdf-text">
+		<div id="loading-info">
+			Extracting text ... Please Wait !
+		</div>
+	</div>
+	
+	 
+</head>
+
+<body>
+
+</body>
+
+</html>

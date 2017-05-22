@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>MindMap</title>
+    <link type="text/css" rel="stylesheet" href="/labcourse/css/jsmind.css" />
+	<link rel="stylesheet" href="/labcourse/utils/jstree/dist/themes/default/style.min.css" />
+    <style type="text/css">
+        li{
+			margin-top:2px; 
+			margin-bottom:2px;
+			}
+        button{
+			width:140px;
+			font-size: 10px;
+			}
+		#my_file {
+			display: none;
+		}
+		#get_file {
+			cursor: pointer;
+			background:#f1f1f1;
+		}
+		#my_file1 {
+			display: none;
+		}
+		#get_file1 {
+			cursor: pointer;
+			background:#f1f1f1;
+		}
+        select{
+			width:140px;
+			}
+        #layout{
+			width:1230px;
+			}
+        #jsmind_nav{
+			margin-top:2px; 
+			margin-bottom:2px;
+			border-radius: 1px;
+			width:1260px;
+			height:90px;
+			border:solid 1px #aaa;
+			overflow:auto;
+			float:left;
+			background-color: #f1f1f1;
+			}
+		#jsmind_menu1{
+			margin-top:2px; 
+			margin-bottom:2px;
+			margin-left:2px;
+			margin-right:2px;
+			width:430px;
+			height:70px;
+			border:solid 1px #aaa;
+			overflow:auto;
+			float:left;
+			}
+		#jsmind_menu2{
+			margin-top:2px; 
+			margin-bottom:2px;
+			margin-left:2px;
+			margin-right:2px;
+			width:430px;
+			height:70px;
+			border:solid 1px #aaa;
+			overflow:auto;
+			float:left;
+			}
+		#jsmind_menu3{
+			margin-top:2px; 
+			margin-bottom:2px;
+			margin-left:2px;
+			margin-right:2px;
+			width:180px;
+			height:120px;
+			border:solid 1px #aaa;
+			overflow:auto;
+			float:left;
+			}
+		#jsmind_menu4{
+			margin-top:2px; 
+			margin-bottom:2px;
+			margin-left:2px;
+			margin-right:2px;
+			width:180px;
+			height:120px;
+			border:solid 1px #aaa;
+			overflow:auto;
+			float:left;
+			}
+		#jsmind_menu5{
+			margin-top:2px; 
+			margin-bottom:2px;
+			margin-left:2px;
+			margin-right:2px;
+			width:180px;
+			height:120px;
+			border:solid 1px #aaa;
+			overflow:auto;
+			float:left;
+			}
+		#jsmind_menu6{
+			margin-top:2px; 
+			margin-bottom:2px;
+			margin-left:2px;
+			margin-right:2px;
+			width:180px;
+			height:120px;
+			border:solid 1px #aaa;
+			overflow:auto;
+			float:left;
+			}
+        button.sub{
+		width:100px;
+			}
+        #jsmind_container{
+			margin-top:1px;
+			margin-left:2px;
+            float:left;
+            width:800px;
+            height:500px;
+            border:solid 1px #aaa;
+            background:#f1f1f1;
+        }
+		#directory_container{
+			margin-top:1px;
+            float:left;
+            width:200px;
+            height:500px;
+            border:solid 1px #aaa;
+            background:#f1f1f1;
+        }
+		#references_container{
+			margin-top:1px;
+			margin-left:2px;
+            float:left;
+            width:222px;
+            width:222px;
+            height:500px;
+            border:solid 1px #aaa;
+            background:#f1f1f1;
+        }
+    </style>
+	<style type="text/css">
+			html { 
+				margin:0; padding:0; font-size:62.5%; 
+				}
+			.demo { 
+				overflow:auto; margin-top:2px; margin-left:2px; margin-right:2px; margin-botton:6px; border:1px solid silver; min-height:495px; background:#ffffff;
+				}
+			body {
+				font-family: "Lato", sans-serif;
+				-webkit-font-smoothing: subpixel-antialiased;
+			}
+			label.mini{
+				font-family: "Lato", sans-serif;
+				font-size:80%;
+				text-align:right;
+			}
+
+			/* Style the tab */
+			div.tab {
+				overflow: hidden;
+				border: solid 1px #aaa;
+				background-color: #f1f1f1;
+				width:1260px;
+				height:15px;
+				border-radius: 1px;
+			}
+
+			/* Style the buttons inside the tab */
+			div.tab button {
+				background-color: inherit;
+				float: left;
+				border: none;
+				outline: none;
+				cursor: pointer;
+				padding: 0.5px 0.7px;
+				transition: 0.3s;
+				font-size: 10px;
+			}
+
+			/* Change background color of buttons on hover */
+			div.tab button:hover {
+			background-color: #ddd;
+			border-left:solid 1px #aaa;
+			border-right:solid 1px #aaa;
+			border-top:solid 1px #aaa;
+			}
+
+			/* Create an active/current tablink class */
+			div.tab button.active {
+			background-color: #ccc;
+			border-left:solid 1px #aaa;
+			border-right:solid 1px #aaa;
+			border-top:solid 1px #aaa;
+			}
+
+			/* Style the tab content */
+			.tabcontent {
+				display: none;
+				padding: 1px 2px;
+				-webkit-animation: fadeEffect 1s;
+				animation: fadeEffect 1s;
+			}
+
+			/* Fade in tabs */
+			@-webkit-keyframes fadeEffect {
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+
+			@keyframes fadeEffect {
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+	</style>
+</head>
+<body>
+
+<div id="layout">
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'jsmind_menu1')" id="defaultOpen">Home</button>
+		<button class="tablinks" onclick="openTab(event, 'jsmind_menu2')">Nodes</button>
+		<button class="tablinks" onclick="openTab(event, 'jsmind_menu3')">Files</button>
+	</div>
+
+	<div id="jsmind_nav">
+        <div id="jsmind_menu1" class="tabcontent">
+			<button onclick="prompt_info('under construction')"><img src="/labcourse/img/icon/new.png" title="open PDF" width="15" height="10"/> New mind map</button>
+            <button onclick="open_json();"> <img src="/labcourse/img/icon/open1.png" title="open existing" width="15" height="10"/> Open existing</button>
+			<button onclick="prompt_info('under construction')"><img src="/labcourse/img/icon/pdf.png" title="open PDF" width="15" height="10"/> Open PDF</button>
+			<button id="get_file">
+				<input type="file" id="my_file" accept=".json, .mm, .xml">
+					<img src="/labcourse/img/icon/open.png" title="open file" width="15" height="10"/> Open file
+				</input>
+			</button>
+			<button id="get_file1">
+				<input type="file" id="my_file1" accept=".mm">
+					<img src="/labcourse/img/icon/paper.png" title="open mind map" width="15" height="10"/> Open mind map
+				</input>
+			</button>
+			<button onclick="prompt_info('under construction')"><img src="/labcourse/img/icon/close.png" title="open PDF" width="15" height="10"/> Close mind map</button>
+			<button onclick="save_freemind_file();"><img src="/labcourse/img/icon/save.png" title="save mind map" width="15" height="10"/> Save mind map </button>
+			<button onclick="save_file();"><img src="/labcourse/img/icon/saveas.png" title="save as" width="15" height="10"/> Save as </button>
+			<button onclick="screen_shot();"><img src="/labcourse/img/icon/screenshot.png" title="screenshot" width="15" height="10"/> Screenshot </button>
+		</div>
+       <div id="jsmind_menu2" class="tabcontent">
+			<button onclick="add_node();"><img src="/labcourse/img/icon/add.png" title="add node" width="15" height="10"/> New node</button>
+            <button onclick="add_image_node();"><img src="/labcourse/img/icon/addimage.png" title="add image node" width="15" height="10"/> New image node</button>
+			<button onclick="toggle_editable(this);"><img src="/labcourse/img/icon/disable.png" title="disable" width="15" height="10"/> Disable node</button>
+            <button onclick="select_node();"><img src="/labcourse/img/icon/select.png" title="select a node" width="15" height="10"/> Select node</button>
+            <button onclick="show_selected();"><img src="/labcourse/img/icon/info.png" title="get the selected" width="15" height="10"/> Info</button>
+            <button onclick="modify_node();"><img src="/labcourse/img/icon/editnode.png" title="edit a node" width="15" height="10"/> Edit node</button>
+            <button onclick="remove_node();"><img src="/labcourse/img/icon/deletenode.png" title="edit a node" width="15" height="10"/> Remove node</button>
+        </div>
+        <div id="jsmind_menu3" class="tabcontent">
+        <ol type='A'>
+            <button onclick="change_text_font();">change font</button>
+            <button onclick="change_text_color();">change color</button>
+            <button onclick="change_background_color();">change bg-color</button>
+            <button onclick="change_background_image();">change background</button>
+        </ol>
+		</div>
+        <div id="jsmind_menu4" class="tabcontent">
+        <ol type='A'>        
+        <select onchange="set_theme(this.value);">
+            <option value="">default</option>
+            <option value="primary">primary</option>
+            <option value="warning">warning</option>
+            <option value="danger">danger</option>
+            <option value="success">success</option>
+            <option value="info">info</option>
+            <option value="greensea" selected="selected">greensea</option>
+            <option value="nephrite">nephrite</option>
+            <option value="belizehole">belizehole</option>
+            <option value="wisteria">wisteria</option>
+            <option value="asphalt">asphalt</option>
+            <option value="orange">orange</option>
+            <option value="pumpkin">pumpkin</option>
+            <option value="pomegranate">pomegranate</option>
+            <option value="clouds">clouds</option>
+            <option value="asbestos">asbestos</option>
+        </select>  
+        </ol>
+		</div>
+        <div id="jsmind_menu5" class="tabcontent">
+        <ol type='A'>
+            <li><button onclick="change_container();">resize container</button>
+            <button onclick="resize_jsmind();">adusting</button></li>
+            <li>expand/collapse</li>
+            <ol>
+                <li><button class="sub" onclick="expand();">expand node</button></li>
+                <li><button class="sub" onclick="collapse();">collapse node</button></li>
+                <li><button class="sub" onclick="toggle();">toggle node</button></li>
+                <li><button class="sub" onclick="expand_to_level2();">expand to level 2</button></li>
+                <li><button class="sub" onclick="expand_to_level3();">expand to level 3</button></li>
+                <li><button class="sub" onclick="expand_all();">expand all</button></li>
+                <li><button class="sub" onclick="collapse_all();">collapse all</button></li>
+            </ol>
+            <li>zoom</li>
+
+            <button id="zoom-in-button" style="width:50px" onclick="zoomIn();">
+                In
+            </button>
+            <button id="zoom-out-button" style="width:50px" onclick="zoomOut();">
+                Out
+            </button>
+        </ol>
+		</div>
+       <div id="jsmind_menu6" class="tabcontent">
+        <ol type='A'>
+            <li>node_tree(default)</li>
+            <ol>
+                <li><button class="sub" onclick="show_data();">show data</button></li>
+                <li><button class="sub" onclick="save_file();">save file</button></li>
+                <li><input id="file_input" class="file_input" type="file"/></li>
+                <li><button class="sub" onclick="open_file();">open file</button></li>
+            </ol>
+            <li>node_array</li>
+            <ol>
+                <li><button class="sub" onclick="get_nodearray_data();">show data</button></li>
+                <li><button class="sub" onclick="save_nodearray_file();">save file</button></li>
+                <li><input id="file_input_nodearray" class="file_input" type="file"/></li>
+                <li><button class="sub" onclick="open_nodearray();">open file</button></li>
+            </ol>
+            <li>freemind(.mm)</li>
+            <ol>
+                <li><button class="sub" onclick="get_freemind_data();">show data</button></li>
+                <li><button class="sub" onclick="save_freemind_file();">save file</button></li>
+                <li><input id="file_input_freemind" class="file_input" type="file"/></li>
+                <li><button class="sub" onclick="open_freemind();">open file</button></li>
+            </ol>
+        </ol>
+		</div>
+    </div>
+	<div id="directory_container">
+		<div id="lazy" class="demo"></div>
+	</div>
+    <div id="jsmind_container"> </div>
+	<div id="references_container"></div>
+	
+    <div style="display:none">
+      <input class="file" type="file" id="image-chooser" accept="image/*"/>
+    </div>
+
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript" src="/labcourse/js/jsmind.js"></script>
+<script type="text/javascript" src="/labcourse/js/jsmind.draggable.js"></script>
+<script type="text/javascript" src="/labcourse/js/jsmind.screenshot.js"></script>
+<script type="text/javascript" src="/labcourse/js/mindmap.js"></script>
+<script type="text/javascript" src="/labcourse/js/button.js"></script>
+<script type="text/javascript" src="/labcourse/js/tabscript.js"></script>
+<script type="text/javascript" src="/labcourse/utils/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="/labcourse/js/dir.js"></script>
+
+</body>
+</html>
